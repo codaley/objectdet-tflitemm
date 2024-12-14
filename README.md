@@ -90,9 +90,8 @@ If you want to use your own custom-trained TensorFlow Lite model in the app:
 ## Version Tracking
 
 The `version-checks/` folder contains screenshots of the tested versions of tools and software used during development. These include:
-- TensorFlow Lite Model Maker version.
-- Android Studio version.
-- Python environment details.
+- Android Studio version
+- Gradle JDK and environment details
 
 ---
 
