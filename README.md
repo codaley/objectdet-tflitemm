@@ -19,7 +19,7 @@ The custom-trained model has been integrated into an Android app based on the [T
 ### Prerequisites
 
 *   The **[Android Studio](https://developer.android.com/studio/index.html)** IDE.
-    - Tested on Android Studio Flamingo.
+    - Tested on Android Studio Bumblebee.
 *   A physical Android device running **Android 15** or higher.
     - Developer mode must be enabled.
 
