@@ -1,5 +1,4 @@
-# TFLite Model Maker (2024): EfficientDet-Lite2 Object Detection for Autonomous Vehicles
-
+# TFLite Model Maker (2024): Training Object Detection Models with EfficientDet-Lite2
 ### Overview
 
 This project demonstrates how to train a custom object detection model using **TensorFlow Lite Model Maker** with an **EfficientDet-Lite2** backbone. The training process utilizes transfer learning to fine-tune the model on novel data, enabling the detection of specific objects such as rocks and bags. The model is trained in **Google Colab** using a custom Python environment and then deployed to an Android device for inference.
