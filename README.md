@@ -4,7 +4,7 @@
 
 Follow the [Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0) to download the Android app files for this project. These files include everything needed to run the app or integrate a custom TensorFlow Lite model.
 
-This project demonstrates the use of the **EfficientDet-Lite2** model to distinguish between rocks and bags using transfer learning. The intended use case is for autonomous vehicles to make safer decisions when encountering objects in their path.
+This project demonstrates the use of the **EfficientDet-Lite2** model to distinguish between rocks and bags using transfer learning. The hypothetical use case is for autonomous vehicles to make safer decisions when encountering objects in their path.
 
 - **Intended Behavior Logic**:
   - If a **rock** is detected, the vehicle will swerve to avoid the obstacle.
