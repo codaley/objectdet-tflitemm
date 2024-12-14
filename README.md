@@ -1,4 +1,4 @@
-# EfficientDet-Lite2 Object Detection for Autonomous Vehicles: TFLite Model Maker (2024)
+# TFLite Model Maker (2024): EfficientDet-Lite2 Object Detection for Autonomous Vehicles
 
 ### Overview
 
