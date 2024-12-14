@@ -3,7 +3,7 @@
 ### Overview
 
 This project is a proof-of-concept application designed to distinguish between rocks and bags using transfer learning with the **EfficientDet-Lite2** model. The intended use case is for autonomous vehicles to make safer steering decisions by identifying objects in their path.  
-- **Behavior Logic**:
+- **Intended Behavior Logic**:
   - If a **rock** is detected: the vehicle will swerve to avoid the obstacle.
   - If a **bag** is detected: the vehicle will not swerve, reducing unnecessary evasive actions.  
 This approach addresses documented cases where autonomous vehicles struggled to differentiate between rocks and bags.  
