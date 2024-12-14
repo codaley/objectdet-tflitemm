@@ -1,4 +1,4 @@
-# Object Detection for Autonomous Vehicles inference on Android
+# Efficient Object Detection for Autonomous Vehicles: TFLite Model Maker (2024)
 
 ### Overview
 
