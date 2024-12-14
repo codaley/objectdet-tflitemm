@@ -1,4 +1,4 @@
-# EfficientDet-Lite Object Detection with TFLite Model Maker
+# Object Detection with TFLite Model Maker
 ### Overview
 
 This project demonstrates how to train a custom object detection model using **TensorFlow Lite Model Maker** with an **EfficientDet-Lite2** backbone. The training process utilizes transfer learning to fine-tune the model on novel data, enabling the detection of two custom classes, rocks and bags. The model is trained in **Google Colab** using a custom Python environment and then deployed to a Pixel 7a device for inference.
