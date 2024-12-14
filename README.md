@@ -85,17 +85,6 @@ If you want to use your own custom-trained TensorFlow Lite model in the app:
 3. Once replaced, rebuild the app to include your custom model.
 
 
-
----
-
-## Models Used
-
-The app supports multiple TensorFlow Lite models, including:
-- Pretrained models like **EfficientDet Lite0**, **EfficientDet Lite1**, and **EfficientDet Lite2**.
-- Custom-trained models like the one in this project for detecting rocks and bags.
-
-Model downloading and placement into the `assets` folder is handled automatically by the app’s Gradle scripts during the build process.
-
 ---
 
 ## Version Tracking
