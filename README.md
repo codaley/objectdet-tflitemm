@@ -56,17 +56,29 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
 
 ### Deployment Steps
 
-1. Open Android Studio and select **Open an existing Android Studio project**.
-2. Navigate to and select the `android/` directory of the project. Click **OK**.
-3. If prompted for a Gradle Sync, click **OK** to sync dependencies.
-4. Replace the default model in the `assets/` folder with the custom-trained model file (`model.tflite`).
-5. Connect your Android device to your computer.
-6. Click the green **Run** arrow in Android Studio to build and deploy the app to the device.
-7. After launching the app, use the dropdown menu to select the custom model for inference.
+1. Download the TensorFlow Examples repository:
+    - Visit the [TensorFlow Examples repository](https://github.com/tensorflow/examples/tree/master).
+    - Click the **Code** button and select **Download ZIP**, or clone the repository using Git:
+      ```bash
+      git clone https://github.com/tensorflow/examples.git
+      ```
+2. Extract the downloaded repository (if you used the ZIP option) and navigate to the following path: lite/examples/object_detection
+3. Open the `android/` folder in Android Studio:
+ - Launch Android Studio and select **Open an existing Android Studio project**.
+ - Navigate to the `android/` folder inside the `object_detection` directory and click **OK**.
+4. If prompted for a Gradle Sync, click **OK** to sync dependencies.
+5. Replace the default model in the `assets/` folder with your custom-trained model file (`model.tflite`):
+ - Navigate to `src/main/assets/` in the Android Studio project structure.
+ - Delete the existing model file and add your custom model (`model.tflite`) to this folder.
+6. Connect your Android device to your computer and ensure developer mode is enabled.
+7. Click the green **Run** arrow in Android Studio to build and deploy the app to your device.
+8. Once the app is installed and running, use the dropdown menu to select the custom model for inference.
 
 ### Prebuilt App
 
 If you want to skip the building process, you can download the prebuilt APK with the custom model included from [this Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0).
+
+
 
 ---
 
