@@ -37,7 +37,7 @@ A big thanks to [wwfish](https://github.com/wwfish/tflite-model-maker-workaround
    - Training data consists of **500 images** annotated with bounding boxes using [LabelImg](https://github.com/heartexlabs/labelImg) on Windows.
    - Annotations are saved in the **PascalVOC format**.
    - Images are resized to **256x256x3** for faster inference on edge devices. For improved accuracy, training with images resized to **320x320x3** is recommended.
-   - Upload the `rockbag_figure.zip` (or a similar dataset archive) to the `content/` directory in Colab.
+   - Upload the `rockbag_figure.zip` (or a custom dataset archive) to the `content/` directory in Colab.
 
 3. **Training Configuration**:
    - The `train.py` script allows advanced customization of key hyperparameters, including:
