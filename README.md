@@ -121,4 +121,4 @@ This project lays the groundwork for exploring object detection in autonomous ve
 
 ## Acknowledgments
 
-This project uses the [TensorFlow Lite Examples Repository](https://github.com/tensorflow/examples) as its foundation, with modifications to integrate a custom-trained model. The tflite-model-maker workaround builds upon the workaround originally shared by [@tomkuzma](https://github.com/tensorflow/tensorflow/issues/60431#issuecomment-1574781146) in June 2023.
+This project builds upon the tflite-model-maker workaround originally shared by [@tomkuzma](https://github.com/tensorflow/tensorflow/issues/60431#issuecomment-1574781146) in June 2023. Android implementation is based on the Demo App shared on the [TensorFlow Lite Examples Repository](https://github.com/tensorflow/examples).
