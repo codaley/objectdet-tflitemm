@@ -2,15 +2,13 @@
 
 ### Overview
 
-Follow the [Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0) to download the Android app files for this project. These files include everything needed to run the app or integrate a custom TensorFlow Lite model.
+This project uses **TensorFlow Lite Model Maker** in **Google Colab** to perform transfer learning with an **EfficientDet-Lite2** backbone. The goal is to train a custom object detection model using novel data and deploy it to an Android device for real-time inference. 
 
-This project demonstrates the use of the **EfficientDet-Lite2** model to distinguish between rocks and bags using transfer learning. The hypothetical use case is for autonomous vehicles to make safer decisions when encountering objects in their path.
+The training process involves preparing a dataset of annotated images, configuring the training pipeline, and generating a TensorFlow Lite model (`efficientdet-lite2.tflite`). This model is then integrated into an Android app for deployment. The app is capable of performing real-time object detection and includes options to switch between multiple preloaded models.
 
-- **Intended Behavior Logic**:
-  - If a **rock** is detected, the vehicle will swerve to avoid the obstacle.
-  - If a **bag** is detected, the vehicle will not swerve, reducing unnecessary evasive actions.
-
-This approach addresses documented cases where autonomous vehicles struggled to differentiate between rocks and bags.
+The use case demonstrates distinguishing between rocks and bags to assist autonomous vehicles in making safer decisions when encountering objects in their path:
+- **If a rock is detected**: The vehicle swerves to avoid the obstacle.
+- **If a bag is detected**: The vehicle avoids unnecessary evasive actions.
 
 ![Example of app detecting objects in a live scene](media/rockbag-tflite-android.gif)
 
