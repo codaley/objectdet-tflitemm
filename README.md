@@ -27,7 +27,7 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
      - Downloading and installing Miniconda.
      - Creating an isolated environment (`myenv`) with Python 3.9.
      - Updating the conda package manager for smooth operation.
-   - This setup allows the use of the deprecated tflite-model-maker library in a controlled and flexible manner.
+   - This setup allows the use of the deprecated tflite-model-maker library with a CPU runtime.
 
 2. **Data Preparation**:
    - Custom training data consists of 500 images annotated with bounding boxes using `labelImg` in a Windows environment.
