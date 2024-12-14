@@ -83,7 +83,7 @@ A big thanks to [wwfish](https://github.com/wwfish/tflite-model-maker-workaround
 2. Open the `android` folder in **Android Studio** (tested with Android Studio Bumblebee).
 3. You can:
    - Run the app as-is by connecting an Android device in developer mode.
-   - Replace any of the preloaded models with a custom TensorFlow Lite model (see below).
+   - Replace any of the preloaded models with a custom TensorFlow Lite model (see below) then run.
 
 ### Custom Model Integration
 
