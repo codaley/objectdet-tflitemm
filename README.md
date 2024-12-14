@@ -31,8 +31,6 @@ The custom **EfficientDet-Lite2** model is trained using **TensorFlow Lite Model
    **Limitations**:  
    - Training with this setup is restricted to the CPU, which can be slow for larger datasets. GPU acceleration is not currently supported, possibly due to compatibility issues with the conda environment. Contributions to enable GPU support in Colab are welcome and appreciated.
 
-A big thanks to [@tomkuzma](https://github.com/tensorflow/tensorflow/issues/60431#issuecomment-1574781146) for first sharing this workaround in June 2023.
-
 2. **Data Preparation**:  
 - Training data consists of images resized locally to **256x256x3** prior to annotation, as bounding box labels are tied to image resolution. This size allows for faster inference on edge devices. For higher accuracy, resizing images to **320x320x3** before annotation is recommended.
    - Annotations are created using [LabelImg](https://github.com/heartexlabs/labelImg) with bounding boxes saved in **PascalVOC format**.  
@@ -123,4 +121,4 @@ This project lays the groundwork for exploring object detection in autonomous ve
 
 ## Acknowledgments
 
-This project uses the [TensorFlow Lite Examples Repository](https://github.com/tensorflow/examples) as its foundation, with modifications to integrate a custom-trained model.
+This project uses the [TensorFlow Lite Examples Repository](https://github.com/tensorflow/examples) as its foundation, with modifications to integrate a custom-trained model. The tflite-model-maker workaround builds upon the workaround originally shared by [@tomkuzma](https://github.com/tensorflow/tensorflow/issues/60431#issuecomment-1574781146) in June 2023.
