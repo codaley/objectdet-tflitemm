@@ -18,7 +18,7 @@ The custom-trained model has been integrated into an Android app based on the [T
 
 ## Training Process
 
-The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker**, which simplifies the process of training and deploying machine learning models on edge devices. The library leverages transfer learning to reduce the amount of data and training time required, making it an efficient tool for rapid prototyping.
+The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker**, which simplifies the process of training and deploying machine learning models. The library leverages transfer learning to reduce the amount of data and training time required, making it an efficient tool for rapid prototyping.
 
 ### Steps to Train the Model:
 1. **Setup and Environment**:
