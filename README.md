@@ -77,7 +77,7 @@ A big thanks to [wwfish](https://github.com/wwfish/tflite-model-maker-workaround
 
 ## Android App Setup and Custom Model Integration
 
-### Overview
+### Download the Project Files
 
 Follow the [Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0) to download the Android app files. These files include everything needed to run the app or integrate a custom TensorFlow Lite model.
 
