@@ -61,13 +61,14 @@ A big thanks to [wwfish](https://github.com/wwfish/tflite-model-maker-workaround
    - Both the customized `train.py` script and the `rockbag_figure.zip` dataset archive are uploaded to the `content/` directory in Colab.
 
 3. **Training Configuration**:  
-   - The notebook runs the training process once the dataset and script are uploaded.  
-   - COCO metrics are printed during training, providing critical performance evaluations, such as:  
-     - **mAP (mean Average Precision)**: Measures the model's detection accuracy across confidence thresholds and object classes.  
-     - **Precision**: Indicates the percentage of correct predictions out of all predictions made.  
-     - **Recall**: Indicates the percentage of actual objects successfully detected by the model.  
-   - These metrics ensure the model's accuracy and reliability for object detection tasks.  
-   - The training process generates a TensorFlow Lite model file (`efficientdet-lite2.tflite`), which is ready for deployment in the Android app.
+   - After uploading the dataset and training script, the notebook initiates the model training pipeline using the custom data.
+   - During training, COCO metrics are printed, including:  
+     - **mAP (mean Average Precision)**: Overall detection accuracy across thresholds.  
+     - **Precision**: Proportion of correct predictions.  
+     - **Recall**: Proportion of actual objects detected.  
+   - These metrics validate the model's performance and ensure it meets object detection requirements.  
+   - The training process generates a TensorFlow Lite model file (`efficientdet-lite2.tflite`), ready for deployment in the Android app.  
+
 
 4. **Outputs**:
    - The `efficientdet-lite2.tflite` file is saved and ready to be used in the Android app.
