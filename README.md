@@ -1,57 +1,72 @@
-# Bag vs. Rock Detection for Autonomous Vehicles
+# EfficientDet-Lite2 Object Detection for Autonomous Vehicles: TFLite Model Maker (2024)
 
 ### Overview
 
-This project is a proof-of-concept application designed to distinguish between bags and rocks using transfer learning with the **EfficientDet-Lite2** model. The intended use case is for autonomous vehicles to make safer steering decisions by identifying objects in their path.  
-- **Behavior Logic**:
+This project is a proof-of-concept application designed to distinguish between rocks and bags using transfer learning with the **EfficientDet-Lite2** model. The intended use case is for autonomous vehicles to make safer steering decisions by identifying objects in their path.  
+
+- **Intended Behavior Logic**:
   - If a **rock** is detected: the vehicle will swerve to avoid the obstacle.
   - If a **bag** is detected: the vehicle will not swerve, reducing unnecessary evasive actions.  
-This approach addresses documented cases where autonomous vehicles struggled to differentiate between rocks and bags.  
+
+This approach addresses documented cases where autonomous vehicles struggled to differentiate between rocks and bags.
 
 The custom-trained model has been integrated into an Android app based on the [TensorFlow Lite Examples](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/android) repository. The app runs on Android devices and allows switching to the custom model via a dropdown menu.
 
-![Example of app detecting objects in a live scene](placeholder.gif)
-
----
-
-## Build the Demo Using Android Studio
-
-### Prerequisites
-
-*   The **[Android Studio](https://developer.android.com/studio/index.html)** IDE.
-    - Tested on Android Studio Flamingo.
-*   A physical Android device running **Android 15** or higher.
-    - Developer mode must be enabled.
-
-### Building
-
-1. Open Android Studio. From the Welcome screen, select **Open an existing Android Studio project**.
-2. Navigate to and select the `tensorflow-lite/examples/object_detection/android` directory. Click **OK**.
-3. If prompted for a Gradle Sync, click **OK**.
-4. Replace the default model in the `assets/` folder with the custom-trained model file (`model.tflite`).
-5. Connect your Android device to your computer and ensure developer mode is enabled.
-6. Click the green **Run** arrow in Android Studio to build and deploy the app.
+![Example of app detecting objects in a live scene](media/rockbag-tflite-android.gif)
 
 ---
 
 ## Training Process
 
-The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker**, which simplifies the process of training and deploying machine learning models on edge devices. Training details include:
-- **Dataset**:
-  - 500 custom images labeled with bounding box annotations using `labelImg` on Windows.
-  - Images resized to **256x256x3** for fast inference on edge devices.
-- **Training Environment**:
-  - External training script (`train.py`) was used to fine-tune the backbone model and hyperparameters.
+The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker**, which simplifies the process of training and deploying machine learning models on edge devices. The library leverages transfer learning to reduce the amount of data and training time required, making it an efficient tool for rapid prototyping.
+
+### Steps to Train the Model:
+1. **Setup and Environment**:
+   - The `notebook_main.ipynb` file should be uploaded to **Google Colab**.
+   - This notebook sets up a custom Python environment using **Miniconda** to work around limitations in Colab's pre-installed libraries and fixed Python version. The custom environment ensures compatibility with older dependencies by:
+     - Downloading and installing Miniconda.
+     - Creating an isolated environment (`myenv`) with Python 3.9.
+     - Updating the conda package manager for smooth operation.
+   - This setup allows the use of outdated libraries in a controlled and flexible manner.
+
+2. **Data Preparation**:
+   - Custom training data consists of 500 images annotated with bounding boxes using `labelImg` in a Windows environment.
+   - Images were resized to **256x256x3** for fast inference on edge devices.
+   - Upload the `rockbag_figure.zip` (or a similar dataset archive) to the `content/` directory in Colab.
+
+3. **Training Configuration**:
+   - The external `train.py` script is designed for advanced customization. Users can edit it to modify key hyperparameters, including:
+     - **Batch size**
+     - **Number of epochs**
+     - **Backbone architecture**
+   - Once the dataset and script are uploaded, the notebook executes the training pipeline and generates the `model.tflite` file.
+
+4. **Outputs**:
+   - The trained model (`model.tflite`) is saved and ready for deployment in the Android app.
 
 ---
 
-## App Deployment
+## Android App Setup and Deployment
 
-1. **Custom Model Integration**:
-   - The trained `model.tflite` file has been added to the app's `assets` folder.
-   - Users can select the custom model via a dropdown menu in the app interface.
-2. **Download the App**:
-   - A prebuilt APK, with the custom model included, can be downloaded from [this Dropbox link](#).
+### Prerequisites
+
+*   The **[Android Studio](https://developer.android.com/studio/index.html)** IDE.
+    - Tested on Android Studio Flamingo.
+*   A physical Android device with developer mode enabled.
+
+### Deployment Steps
+
+1. Open Android Studio and select **Open an existing Android Studio project**.
+2. Navigate to and select the `android/` directory of the project. Click **OK**.
+3. If prompted for a Gradle Sync, click **OK** to sync dependencies.
+4. Replace the default model in the `assets/` folder with the custom-trained model file (`model.tflite`).
+5. Connect your Android device to your computer.
+6. Click the green **Run** arrow in Android Studio to build and deploy the app to the device.
+7. After launching the app, use the dropdown menu to select the custom model for inference.
+
+### Prebuilt App
+
+If you want to skip the building process, you can download the prebuilt APK with the custom model included from [this Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0).
 
 ---
 
@@ -59,7 +74,7 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
 
 The app supports multiple TensorFlow Lite models, including:
 - Pretrained models like **EfficientDet Lite0**, **EfficientDet Lite1**, and **EfficientDet Lite2**.
-- Custom-trained models like the one in this project for detecting bags and rocks.
+- Custom-trained models like the one in this project for detecting rocks and bags.
 
 Model downloading and placement into the `assets` folder is handled automatically by the app’s Gradle scripts during the build process.
 
