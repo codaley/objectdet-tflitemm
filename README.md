@@ -33,18 +33,41 @@ The custom **EfficientDet-Lite2** model is trained using **TensorFlow Lite Model
 
 A big thanks to [wwfish](https://github.com/wwfish/tflite-model-maker-workaround) for first introducing this workaround in July 2023. His contribution forms the foundation of this project’s training process.
 
-2. **Data Preparation**:
-   - Training data consists of **500 images** annotated with bounding boxes using [LabelImg](https://github.com/heartexlabs/labelImg) on Windows.
-   - Annotations are saved in the **PascalVOC format**.
-   - Images are resized to **256x256x3** for faster inference on edge devices. For improved accuracy, training with images resized to **320x320x3** is recommended.
-   - Upload the `rockbag_figure.zip` (or a custom dataset archive) to the `content/` directory in Colab.
+2. **Data Preparation**:  
+- Training data consists of images resized locally to **256x256x3** prior to annotation, as bounding box labels are tied to the image resolution. This size allows for faster inference on edge devices. For higher accuracy, resizing images to **320x320x3** before annotation is recommended.
+   - Annotations are created using [LabelImg](https://github.com/heartexlabs/labelImg) with bounding boxes saved in **PascalVOC format**.  
+   - Annotations and images are organized into separate folders for training and validation, following this structure:  
 
-3. **Training Configuration**:
-   - The `train.py` script allows advanced customization of key hyperparameters, including:
-     - **Batch size**
-     - **Number of epochs**
-     - **Backbone architecture**
-   - Once the dataset and script are uploaded, the notebook executes the training process and generates the `efficientdet-lite2.tflite` file.
+     ```
+     rockbag_figure.zip
+     └── rockbag_figure
+         ├── train
+         │   ├── IMG_001.jpg
+         │   ├── IMG_001.xml
+         │   ├── IMG_002.jpg
+         │   └── IMG_002.xml
+         └── validate
+             ├── IMG_101.jpg
+             ├── IMG_101.xml
+             ├── IMG_102.jpg
+             └── IMG_102.xml
+     ```
+
+   - The directory is compressed into a `.zip` file (`rockbag_figure.zip`) for upload. If custom data is used, it must follow this folder structure and annotation format for compatibility with the training pipeline.  
+   - The `train.py` script is edited prior to upload to configure key hyperparameters, including:  
+     - **Batch size**  
+     - **Number of epochs**  
+     - **Backbone architecture**  
+   - Both the customized `train.py` script and the `rockbag_figure.zip` dataset archive are uploaded to the `content/` directory in Colab.
+
+3. **Training Configuration**:  
+   - The notebook runs the training process once the dataset and script are uploaded.  
+   - COCO metrics are printed during training, providing critical performance evaluations, such as:  
+     - **mAP (mean Average Precision)**: Measures the model's detection accuracy across confidence thresholds and object classes.  
+     - **Precision**: Indicates the percentage of correct predictions out of all predictions made.  
+     - **Recall**: Indicates the percentage of actual objects successfully detected by the model.  
+   - These metrics ensure the model's accuracy and reliability for object detection tasks.  
+   - The training process generates a TensorFlow Lite model file (`efficientdet-lite2.tflite`), which is ready for deployment in the Android app.
 
 4. **Outputs**:
    - The `efficientdet-lite2.tflite` file is saved and ready to be used in the Android app.
