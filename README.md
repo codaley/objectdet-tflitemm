@@ -17,7 +17,7 @@ This project was inspired by cases where self-driving cars struggled to differen
 
 ## Training Process
 
-The **EfficientDet-Lite2** model is trained using **TensorFlow Lite Model Maker**, which simplifies training and deploying machine learning models. The library uses transfer learning to reduce the amount of data and training time required, making it an efficient tool for prototyping.
+The **EfficientDet-Lite2** model is trained using **TensorFlow Lite Model Maker**, which simplifies the training and deployment of machine learning models. The library uses transfer learning to reduce the amount of data and training time required, making it an efficient tool for prototyping.
 
 ### Steps to Train the Model:
 1. **Setup and Environment**:
