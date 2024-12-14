@@ -51,7 +51,7 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
 ### Prerequisites
 
 *   The **[Android Studio](https://developer.android.com/studio/index.html)** IDE.
-    - Tested on Android Studio Flamingo.
+    - Tested on Android Studio Bumblebee.
 *   A physical Android device with developer mode enabled.
 
 ### Deployment Steps
