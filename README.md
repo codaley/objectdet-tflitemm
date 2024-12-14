@@ -10,7 +10,7 @@ This approach addresses documented cases where autonomous vehicles struggled to 
 
 The custom-trained model has been integrated into an Android app based on the [TensorFlow Lite Examples](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/android) repository. The app runs on Android devices and allows switching to the custom model via a dropdown menu.
 
-![Example of app detecting objects in a live scene](placeholder.gif)
+![Example of app detecting objects in a live scene](https://www.dropbox.com/scl/fi/95pu9ppeplfvsfc74bqke/rockbag-tflite-android.gif?rlkey=6jch7obb4hygi7jr6zjjpkxza&st=u1knzll5&dl=0)
 
 ---
 
