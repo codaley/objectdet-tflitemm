@@ -50,43 +50,39 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
 
 ---
 
-## Android App Setup and Deployment
+## Android App Setup and Custom Model Integration
 
-### Prerequisites
+### Overview
 
-*   An Android device with developer mode enabled.
-*   The prebuilt APK file, which can be downloaded from [this Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0).
+By following the [Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0), you can download the Android app files required for this project. The downloaded files include everything needed to run the app or integrate a custom TensorFlow Lite model.
 
-### Deployment Steps
+### Setup in Android Studio
 
-1. Download the prebuilt APK file from the link above.
-2. Transfer the APK file to your Android device.
-3. On your Android device:
-    - Go to **Settings > Security** and enable the option to install apps from unknown sources (if not already enabled).
-    - Locate the APK file using your file explorer app and tap it to install.
-4. Launch the app once the installation is complete.
+1. Download the app files from the link above.
+2. Open the `android` folder in **Android Studio** (tested with Android Studio Bumblebee).
+3. Users can:
+   - Run the app as-is by connecting an Android device in developer mode.
+   - Integrate their own custom-trained TensorFlow Lite model into the app (see below for instructions).
 
-### App Details
+### Custom Model Integration
 
-This app is a fork of TensorFlow Lite's official object detection demo and includes a custom-trained model for detecting rocks and bags, along with three other preloaded models:
-
+The app comes preloaded with the following TensorFlow Lite models:
 - **MobileNet V1**
 - **EfficientDet Lite0**
 - **EfficientDet Lite1**
 - **EfficientDet Lite2** (Custom-trained for rock vs. bag detection)
 
-When the app runs, you can use the dropdown menu to select one of the four models. The **EfficientDet Lite2** model is preloaded as the custom-trained model designed specifically for detecting rocks and bags.
+If you want to replace any of these models with your own custom-trained TensorFlow Lite model:
+1. Navigate to the `/assets/` folder inside the app files.
+2. Replace one of the existing model files with your custom model.
+   - Your custom model file must be named exactly the same as the model you are replacing:
+     - `mobilenetv1.tflite`
+     - `efficientdet-lite0.tflite`
+     - `efficientdet-lite1.tflite`
+     - `efficientdet-lite2.tflite`
+3. Once the custom model is added, rebuild the app in Android Studio to apply the changes.
 
-### Custom Model Integration
-
-If you want to use your own custom-trained TensorFlow Lite model in the app:
-1. Your custom model must replace one of the existing models in the `/assets/` folder of the app.
-2. Name your model file exactly the same as the model you are replacing:
-    - `mobilenetv1.tflite`
-    - `efficientdet-lite0.tflite`
-    - `efficientdet-lite1.tflite`
-    - `efficientdet-lite2.tflite`
-3. Once replaced, rebuild the app to include your custom model.
+By following these steps, you can seamlessly integrate and test your custom TensorFlow Lite models within the provided app structure.
 
 ---
 
