@@ -1,67 +1,88 @@
-# objectdet-tflitemm
-Train an EfficientDet model for object detection optimized for mobile inference on Android. This 2024 approach provides a workaround for training using the recently deprecated TFLite Model Maker library on a Google Colab CPU runtime.
+# Bag vs. Rock Detection for Autonomous Vehicles
 
-Bag vs. Rock Detection for Autonomous Vehicles
-This project leverages transfer learning with the EfficientDet-Lite2 model to detect bags and rocks, providing a proof-of-concept solution for autonomous vehicle obstacle detection. The intended use case is to assist in differentiating between rocks and bags in a vehicle's path, a critical challenge as documented cases have shown autonomous vehicles struggling to distinguish between these objects.
+### Overview
 
-Behavior Logic
-Rock Detected: The vehicle's steering logic will swerve to avoid a potential hazard.
-Bag Detected: The vehicle's steering logic will not swerve, reducing unnecessary evasive actions.
+This project is a proof-of-concept application designed to distinguish between bags and rocks using transfer learning with the **EfficientDet-Lite2** model. The intended use case is for autonomous vehicles to make safer steering decisions by identifying objects in their path.  
+- **Behavior Logic**:
+  - If a **rock** is detected: the vehicle will swerve to avoid the obstacle.
+  - If a **bag** is detected: the vehicle will not swerve, reducing unnecessary evasive actions.  
+This approach addresses documented cases where autonomous vehicles struggled to differentiate between rocks and bags.  
 
-Project Overview
-Model Training:
+The custom-trained model has been integrated into an Android app based on the [TensorFlow Lite Examples](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/android) repository. The app runs on Android devices and allows switching to the custom model via a dropdown menu.
 
-Utilized transfer learning with the TensorFlow Lite Model Maker library.
-Novel training data of 500 images was manually labeled using the labelImg tool in a Windows environment.
-Images were downsized to 256x256x3 for efficient inference on edge devices like mobile phones.
-The train.py script allows fine-tuning of the backbone model and hyperparameters, providing flexibility for advanced users.
-Deployment:
+![Example of app detecting objects in a live scene](placeholder.gif)
 
-The app used for deployment is adapted directly from the TensorFlow Lite Examples Repository.
-The custom-trained model file (model.tflite) is copied into the assets folder of the app.
-Upon running the app, a dropdown menu allows switching to the newly trained model.
-Test Environment:
+---
 
-The trained model was tested on a Google Pixel 7a running Android 15.
-Quick inference times were achieved due to optimized image dimensions and model architecture.
-Version Tracking:
+## Build the Demo Using Android Studio
 
-The version-checks/ folder contains screenshots of the tested software versions used during development to ensure reproducibility.
+### Prerequisites
 
-Use Case and Relevance
-This project serves as a foundational step for researchers and developers aiming to explore real-world object detection challenges with TensorFlow Lite. Autonomous vehicle logic must accurately distinguish between objects like rocks and bags to make appropriate decisions, as the consequences of misidentification can impact safety and reliability.
+*   The **[Android Studio](https://developer.android.com/studio/index.html)** IDE.
+    - Tested on Android Studio Flamingo.
+*   A physical Android device running **Android 15** or higher.
+    - Developer mode must be enabled.
 
-About TensorFlow Lite Model Maker
-The TensorFlow Lite Model Maker library simplifies training and deploying ML models on edge devices. It abstracts away many complexities but still allows customization of the backbone model and hyperparameters via external scripts such as train.py.
+### Building
 
-How to Use the App
-Download the App:
-The prebuilt Android app, preloaded with the custom-trained model, can be downloaded from this Dropbox link.
+1. Open Android Studio. From the Welcome screen, select **Open an existing Android Studio project**.
+2. Navigate to and select the `tensorflow-lite/examples/object_detection/android` directory. Click **OK**.
+3. If prompted for a Gradle Sync, click **OK**.
+4. Replace the default model in the `assets/` folder with the custom-trained model file (`model.tflite`).
+5. Connect your Android device to your computer and ensure developer mode is enabled.
+6. Click the green **Run** arrow in Android Studio to build and deploy the app.
 
-Run the App:
+---
 
-Install the app on your Android device.
-Open the app and select the custom model from the dropdown menu.
-Point the device camera at objects (e.g., rocks and bags) to see real-time predictions.
-Model Integration:
+## Training Process
 
-The custom model (model.tflite) is already loaded into the app's assets folder.
+The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker**, which simplifies the process of training and deploying machine learning models on edge devices. Training details include:
+- **Dataset**:
+  - 500 custom images labeled with bounding box annotations using `labelImg` on Windows.
+  - Images resized to **256x256x3** for fast inference on edge devices.
+- **Training Environment**:
+  - External training script (`train.py`) was used to fine-tune the backbone model and hyperparameters.
 
-Folder Structure
-assets/: Contains the custom-trained model file.
-notebooks/: Training notebooks showcasing the data preprocessing, training, and evaluation process.
-train.py: External script for advanced tuning of the model and hyperparameters.
-version-checks/: Screenshots of software versions used during development.
-data/: Includes training, validation, and test datasets (not included in the repository due to size constraints).
+---
 
-Acknowledgments
-This project was built using the TensorFlow Lite Examples repository as a base, with additional modifications for custom model integration. Special thanks to the TensorFlow Lite team for providing a robust library that simplifies the model training and deployment process.
+## App Deployment
 
-Future Work
-This proof-of-concept project can be extended by:
+1. **Custom Model Integration**:
+   - The trained `model.tflite` file has been added to the app's `assets` folder.
+   - Users can select the custom model via a dropdown menu in the app interface.
+2. **Download the App**:
+   - A prebuilt APK, with the custom model included, can be downloaded from [this Dropbox link](#).
 
-Expanding the dataset to include more diverse scenarios (e.g., different lighting or weather conditions).
-Improving model accuracy by experimenting with alternative backbone architectures.
-Optimizing inference speeds for other edge devices.
+---
 
-Feel free to explore the repository and adapt it for your own use cases!
+## Models Used
+
+The app supports multiple TensorFlow Lite models, including:
+- Pretrained models like **EfficientDet Lite0**, **EfficientDet Lite1**, and **EfficientDet Lite2**.
+- Custom-trained models like the one in this project for detecting bags and rocks.
+
+Model downloading and placement into the `assets` folder is handled automatically by the app’s Gradle scripts during the build process.
+
+---
+
+## Version Tracking
+
+The `version-checks/` folder contains screenshots of the tested versions of tools and software used during development. These include:
+- TensorFlow Lite Model Maker version.
+- Android Studio version.
+- Python environment details.
+
+---
+
+## Future Work
+
+This project lays the groundwork for exploring object detection in autonomous vehicles. Future enhancements could include:
+- Expanding the dataset to cover diverse scenarios (e.g., different lighting conditions).
+- Experimenting with alternative architectures for improved accuracy.
+- Optimizing the app for faster inference on other edge devices.
+
+---
+
+## Acknowledgments
+
+This project was built using the [TensorFlow Lite Examples Repository](https://github.com/tensorflow/examples) as a foundation, with additional modifications to integrate a custom-trained model.
