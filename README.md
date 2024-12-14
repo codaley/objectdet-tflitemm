@@ -6,6 +6,7 @@ This project is a proof-of-concept application designed to distinguish between r
 - **Intended Behavior Logic**:
   - If a **rock** is detected: the vehicle will swerve to avoid the obstacle.
   - If a **bag** is detected: the vehicle will not swerve, reducing unnecessary evasive actions.  
+
 This approach addresses documented cases where autonomous vehicles struggled to differentiate between rocks and bags.  
 
 The custom-trained model has been integrated into an Android app based on the [TensorFlow Lite Examples](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/android) repository. The app runs on Android devices and allows switching to the custom model via a dropdown menu.
