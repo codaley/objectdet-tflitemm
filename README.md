@@ -39,10 +39,10 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
      - **Batch size**
      - **Number of epochs**
      - **Backbone architecture**
-   - Once the dataset and script are uploaded, the notebook executes the training pipeline and generates the `model.tflite` file.
+   - Once the dataset and script are uploaded, the notebook executes the training pipeline and generates the `efficientdet-lite2.tflite` file.
 
 4. **Outputs**:
-   - The trained model (`model.tflite`) is saved and ready for deployment in the Android app.
+   - The trained model (`efficientdet-lite2.tflite`) is saved and ready for deployment in the Android app.
 
 ---
 
