@@ -4,7 +4,8 @@
 
 This project uses **TensorFlow Lite Model Maker** in **Google Colab** to perform transfer learning with an **EfficientDet-Lite2** backbone. The goal is to train a custom object detection model using novel data and deploy it to an Android device for real-time inference. 
 
-The training process involves preparing a dataset of annotated images, configuring the training pipeline, and generating a TensorFlow Lite model (`efficientdet-lite2.tflite`). This model is then integrated into an Android app for deployment. The app is capable of performing real-time object detection and includes options to switch between multiple preloaded models.
+
+The training process involves preparing a dataset of annotated images, configuring the training pipeline, and generating a TensorFlow Lite model (efficientdet-lite2.tflite). This model is then integrated into an Android app for deployment, enabling real-time object detection with the rear-facing camera.
 
 The use case demonstrates distinguishing between rocks and bags as a proof-of-concept to assist autonomous vehicles in making safer decisions when encountering objects in their path.
 
