@@ -61,7 +61,7 @@ A big thanks to [wwfish](https://github.com/wwfish/tflite-model-maker-workaround
    - Both the customized `train.py` script and the `rockbag_figure.zip` dataset archive are uploaded to the `content/` directory in Colab.
 
 3. **Training Configuration**:  
-   - After uploading the dataset and training script, the notebook initiates the model training pipeline using the custom data.
+   - After uploading the dataset and training script, the notebook initiates the model training pipeline.
    - During training, COCO metrics are printed, including:  
      - **mAP (mean Average Precision)**: Overall detection accuracy across thresholds.  
      - **Precision**: Proportion of correct predictions.  
