@@ -32,7 +32,7 @@ The custom **EfficientDet-Lite2** model is trained using **TensorFlow Lite Model
    - Training with this setup is restricted to the CPU, which can be slow for larger datasets. GPU acceleration is not currently supported, possibly due to compatibility issues with the conda environment. Contributions to enable GPU support in Colab are welcome and appreciated.
 
 2. **Data Preparation**:  
-- Training data consists of images resized locally to **256x256x3** prior to annotation, as bounding box labels are tied to image resolution. This size allows for faster inference on edge devices. For higher accuracy, resizing images to **320x320x3** before annotation is recommended.
+- Training data consists of images resized to **256x256x3** prior to annotation, as bounding box labels are tied to image resolution. This size allows for faster inference on edge devices. For higher accuracy, resizing images to **320x320x3** before annotation is recommended.
    - Annotations are created using [LabelImg](https://github.com/heartexlabs/labelImg) with bounding boxes saved in **PascalVOC format**.  
    - Annotations and images are organized into separate folders for training and validation, following this structure:  
 
