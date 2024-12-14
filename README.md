@@ -1,4 +1,4 @@
-# Bag vs. Rock Detection for Autonomous Vehicles
+# Object Detection for Autonomous Vehicles inference on Android
 
 ### Overview
 
