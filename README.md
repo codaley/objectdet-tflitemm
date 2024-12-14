@@ -106,8 +106,8 @@ To replace any of the models with a custom-trained TensorFlow Lite model:
 
 ## Version Tracking
 
-The `version-checks/` folder contains screenshots of the tested versions of tools and software used during development, including:
-- Android Studio version
+The `version-checks/` folder, located in the project repository, contains screenshots of the tested versions of tools and software used during development, including:  
+- Android Studio version  
 - Gradle JDK and environment details
 
 ---
