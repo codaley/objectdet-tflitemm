@@ -69,7 +69,7 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
 4. If prompted for a Gradle Sync, click **OK** to sync dependencies.
 5. Replace the default model in the `assets/` folder with your custom-trained model file (`efficientdet-lite2.tflite`):
  - Navigate to `src/main/assets/` in the Android Studio project structure.
- - Delete the existing model file and add your custom model (`model.tflite`) to this folder.
+ - Replace the existing (`efficientdet-lite2.tflite`) model file with your custom model (`efficientdet-lite2.tflite`).
 6. Connect your Android device to your computer and ensure developer mode is enabled.
 7. Click the green **Run** arrow in Android Studio to build and deploy the app to your device.
 8. Once the app is installed and running, use the dropdown menu to select the custom model for inference.
