@@ -30,8 +30,9 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
    - This setup allows the use of the deprecated tflite-model-maker library with a CPU runtime.
 
 2. **Data Preparation**:
-   - Custom training data consists of 500 images annotated with bounding boxes using `labelImg` in a Windows environment.
-   - Images were resized to **256x256x3** for fast inference on edge devices.
+   - Custom training data consists of **500 images** annotated with bounding boxes using [LabelImg](https://github.com/heartexlabs/labelImg) in a Windows environment.
+   - Annotations were saved in the **PascalVOC format**.
+   - Images were resized to **256x256x3** for faster inference on edge devices. However, for improved accuracy, it is recommended to train with images resized to **320x320x3**.
    - Upload the `rockbag_figure.zip` (or a similar dataset archive) to the `content/` directory in Colab.
 
 3. **Training Configuration**:
@@ -83,7 +84,6 @@ If you want to use your own custom-trained TensorFlow Lite model in the app:
     - `efficientdet-lite1.tflite`
     - `efficientdet-lite2.tflite`
 3. Once replaced, rebuild the app to include your custom model.
-
 
 ---
 
