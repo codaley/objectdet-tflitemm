@@ -67,7 +67,7 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
  - Launch Android Studio and select **Open an existing Android Studio project**.
  - Navigate to the `android/` folder inside the `object_detection` directory and click **OK**.
 4. If prompted for a Gradle Sync, click **OK** to sync dependencies.
-5. Replace the default model in the `assets/` folder with your custom-trained model file (`model.tflite`):
+5. Replace the default model in the `assets/` folder with your custom-trained model file (`efficientdet-lite2.tflite`):
  - Navigate to `src/main/assets/` in the Android Studio project structure.
  - Delete the existing model file and add your custom model (`model.tflite`) to this folder.
 6. Connect your Android device to your computer and ensure developer mode is enabled.
