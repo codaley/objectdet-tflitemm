@@ -29,6 +29,10 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
      - Updating the conda package manager for smooth operation.
    - This setup allows the use of the deprecated tflite-model-maker library with a CPU runtime.
 
+   **Limitations**:  
+   - Training in this current setup is restricted to the CPU, which can be time-consuming for larger datasets or longer training durations. GPU acceleration is not supported due to compatibility issues with the deprecated library in Colab.  
+   - Contributors who can devise a solution to enable GPU training in Colab are welcome and greatly appreciated. Such contributions would significantly enhance the efficiency of the training process.
+
 2. **Data Preparation**:
    - Custom training data consists of **500 images** annotated with bounding boxes using [LabelImg](https://github.com/heartexlabs/labelImg) in a Windows environment.
    - Annotations were saved in the **PascalVOC format**.
