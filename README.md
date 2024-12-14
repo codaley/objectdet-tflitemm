@@ -78,7 +78,7 @@ When the app runs, you can use the dropdown menu to select one of the four model
 If you want to use your own custom-trained TensorFlow Lite model in the app:
 1. Your custom model must replace one of the existing models in the `/assets/` folder of the app.
 2. Name your model file exactly the same as the model you are replacing:
-    - `mobilenet_v1.tflite`
+    - `mobilenetv1.tflite`
     - `efficientdet-lite0.tflite`
     - `efficientdet-lite1.tflite`
     - `efficientdet-lite2.tflite`
