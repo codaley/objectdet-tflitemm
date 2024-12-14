@@ -31,7 +31,6 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
 
    **Limitations**:  
    - Training in this current setup is restricted to the CPU, which can be time-consuming for larger datasets or longer training durations. GPU acceleration is not currently supported, potentially due to compatibility issues with the conda environment. This is an area of uncertainty, and contributions to investigate and enable GPU support in Colab are welcome and greatly appreciated. Such improvements would significantly enhance the efficiency of the training process.
-   - Contributors who can devise a solution to enable GPU training in Colab are welcome and greatly appreciated. Such contributions would significantly enhance the efficiency of the training process.
 
 2. **Data Preparation**:
    - Custom training data consists of **500 images** annotated with bounding boxes using [LabelImg](https://github.com/heartexlabs/labelImg) in a Windows environment.
