@@ -82,8 +82,6 @@ If you want to replace any of these models with your own custom-trained TensorFl
      - `efficientdet-lite2.tflite`
 3. Once the custom model is added, rebuild the app in Android Studio to apply the changes.
 
-By following these steps, you can seamlessly integrate and test your custom TensorFlow Lite models within the provided app structure.
-
 ---
 
 ## Version Tracking
