@@ -54,7 +54,7 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
 
 ### Overview
 
-By following the [Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0), you can download the Android app files required for this project. The downloaded files include everything needed to run the app or integrate a custom TensorFlow Lite model.
+By following the [Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0), you can download the Android app files required for this project. The downloaded files include everything needed to run the app as-is or integrate a custom TensorFlow Lite model.
 
 ### Setup in Android Studio
 
