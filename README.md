@@ -10,7 +10,7 @@ This project is a proof-of-concept application designed to distinguish between r
 
 This approach addresses documented cases where autonomous vehicles struggled to differentiate between rocks and bags.
 
-The custom-trained model has been integrated into an Android app based on the [TensorFlow Lite Examples](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/android) repository. The app runs on Android devices and allows switching to the custom model via a dropdown menu.
+The custom-trained model has been integrated into an Android app based on the [TensorFlow Lite Examples](https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/android) demo app. The app runs on Android devices and allows switching to the custom model via a dropdown menu.
 
 ![Example of app detecting objects in a live scene](media/rockbag-tflite-android.gif)
 
