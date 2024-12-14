@@ -1,4 +1,4 @@
-# Efficient Object Detection for Autonomous Vehicles: TFLite Model Maker (2024)
+# EfficientDet-Lite2 Object Detection for Autonomous Vehicles: TFLite Model Maker (2024)
 
 ### Overview
 
@@ -36,7 +36,9 @@ The custom-trained model has been integrated into an Android app based on the [T
 
 ## Training Process
 
-The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker**, which simplifies the process of training and deploying machine learning models on edge devices. Training details include:
+The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker**, which simplifies the process of training and deploying machine learning models on edge devices. The Model Maker library uses transfer learning, allowing models to be fine-tuned with smaller datasets while significantly reducing training time. By leveraging a pretrained model and customizing it with a novel dataset, the need for large-scale data collection is minimized, making this an efficient approach for rapid prototyping.
+
+### Training Details:
 - **Dataset**:
   - 500 custom images labeled with bounding box annotations using `labelImg` on Windows.
   - Images resized to **256x256x3** for fast inference on edge devices.
