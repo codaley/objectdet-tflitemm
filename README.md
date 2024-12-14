@@ -53,7 +53,7 @@ The **EfficientDet-Lite2** model was trained using **TensorFlow Lite Model Maker
    - The trained `model.tflite` file has been added to the app's `assets` folder.
    - Users can select the custom model via a dropdown menu in the app interface.
 2. **Download the App**:
-   - A prebuilt APK, with the custom model included, can be downloaded from [this Dropbox link](#).
+   - A prebuilt APK, with the custom model included, can be downloaded from [this Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0).
 
 ---
 
