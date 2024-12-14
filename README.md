@@ -26,7 +26,7 @@ The custom-trained model has been integrated into an Android app based on the [T
 ### Building
 
 1. Open Android Studio. From the Welcome screen, select **Open an existing Android Studio project**.
-2. Navigate to and select the `tensorflow-lite/examples/object_detection/android` directory. Click **OK**.
+2. Navigate to and select the `android/` directory. Click **OK**.
 3. If prompted for a Gradle Sync, click **OK**.
 4. Replace the default model in the `assets/` folder with the custom-trained model file (`model.tflite`).
 5. Connect your Android device to your computer and ensure developer mode is enabled.
