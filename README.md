@@ -34,7 +34,7 @@ The custom **EfficientDet-Lite2** model is trained using **TensorFlow Lite Model
 A big thanks to [wwfish](https://github.com/wwfish/tflite-model-maker-workaround) for first introducing this workaround in July 2023. His contribution forms the foundation of this project’s training process.
 
 2. **Data Preparation**:  
-- Training data consists of images resized locally to **256x256x3** prior to annotation, as bounding box labels are tied to the image resolution. This size allows for faster inference on edge devices. For higher accuracy, resizing images to **320x320x3** before annotation is recommended.
+- Training data consists of images resized locally to **256x256x3** prior to annotation, as bounding box labels are tied to image resolution. This size allows for faster inference on edge devices. For higher accuracy, resizing images to **320x320x3** before annotation is recommended.
    - Annotations are created using [LabelImg](https://github.com/heartexlabs/labelImg) with bounding boxes saved in **PascalVOC format**.  
    - Annotations and images are organized into separate folders for training and validation, following this structure:  
 
