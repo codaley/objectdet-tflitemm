@@ -77,7 +77,7 @@ The custom **EfficientDet-Lite2** model is trained using **TensorFlow Lite Model
 
 ### Setup in Android Studio
 
-1. Download the app files from the <a href="https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0" target="_blank">Dropbox link</a>.
+1. Download the app files from the [Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0).
 2. Open the `android` folder in **Android Studio** (tested with Android Studio Bumblebee).
 3. You can:
    - Run the app as-is by connecting an Android device in developer mode.
