@@ -2,16 +2,15 @@
 
 ### Overview
 
-This project uses **TensorFlow Lite Model Maker** in **Google Colab** to perform transfer learning with an **EfficientDet-Lite2** backbone. The goal is to train a custom object detection model using novel data and deploy it to an Android device for real-time inference. 
+This project demonstrates how to train a custom object detection model using **TensorFlow Lite Model Maker** with an **EfficientDet-Lite2** backbone. The training process utilizes transfer learning to fine-tune the model on novel data, enabling the detection of specific objects such as rocks and bags. The model is trained in **Google Colab** using a custom Python environment and then deployed to an Android device for inference.
 
+The training pipeline involves preparing a dataset of annotated images, configuring hyperparameters, and generating a TensorFlow Lite model (`efficientdet-lite2.tflite`). The resulting model is integrated into an Android app, which supports real-time object detection using the rear-facing camera.
 
-The training process involves preparing a dataset of annotated images, configuring the training pipeline, and generating a TensorFlow Lite model (efficientdet-lite2.tflite). This model is then integrated into an Android app for deployment, enabling real-time object detection with the rear-facing camera.
-
-The use case demonstrates distinguishing between rocks and bags as a proof-of-concept to assist autonomous vehicles in making safer decisions when encountering objects in their path.
+This project was inspired by cases where self-driving cars struggled to differentiate between objects like rocks and bags, leading to unsafe decisions. While not designed to interface directly with autonomous vehicles, it explores solutions to these detection challenges and highlights the potential to improve safety in automated systems.
 
 - **Intended Behavior Logic**:
-  - If a **rock** is detected, the vehicle will swerve to avoid the obstacle.
-  - If a **bag** is detected, the vehicle will not swerve, reducing unnecessary evasive actions.
+  - If a **rock** is detected, the vehicle would swerve to avoid the obstacle.
+  - If a **bag** is detected, the vehicle would not swerve, reducing unnecessary evasive actions.
 
 ![Example of app detecting objects in a live scene](media/rockbag-tflite-android.gif)
 
