@@ -84,8 +84,6 @@ If you want to use your own custom-trained TensorFlow Lite model in the app:
     - `efficientdet-lite2.tflite`
 3. Once replaced, rebuild the app to include your custom model.
 
-Note: Replacing models and rebuilding the app requires access to the source code and knowledge of Android app development. If you do not wish to modify the app, you can use the provided APK with the preloaded custom rock vs. bag detection model.
-
 
 
 ---
