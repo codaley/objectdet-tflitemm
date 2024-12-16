@@ -5,7 +5,7 @@
 
 This project demonstrates the creation of a custom object detection model using **TensorFlow Lite Model Maker** with an **EfficientDet-Lite2** backbone. Leveraging transfer learning, the model is fine-tuned on a novel dataset to detect two custom classes: rocks and bags. The model is trained in **Google Colab** using a custom Python environment and deployed to a Pixel 7a device for real-time inference.
 
-The pipeline includes dataset preparation, hyperparameter configuration, and generating a TensorFlow Lite model (`efficientdet-lite2.tflite`) suitable for integration into an Android app for live object detection. This project addresses challenges in autonomous systems where misidentification of objects like rocks and bags can compromise safety.
+The pipeline includes dataset preparation, hyperparameter configuration, and generating a TensorFlow Lite model (efficientdet-lite2.tflite) suitable for integration into an Android app for live object detection. While this project is not designed to interface directly with autonomous driving systems, it addresses challenges in autonomous systems where misidentification of objects, such as rocks and bags, can compromise safety.
 
 - **Example Logic**:
   - Detecting a **rock** prompts the vehicle to swerve, avoiding potential damage.
