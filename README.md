@@ -1,4 +1,3 @@
-
 # Object Detection with TensorFlow Lite Model Maker
 
 ### Overview
