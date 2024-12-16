@@ -1,124 +1,96 @@
-# Object Detection with TFLite Model Maker
+
+# Object Detection with TensorFlow Lite Model Maker
+
 ### Overview
 
-This project demonstrates how to train a custom object detection model using **TensorFlow Lite Model Maker** with an **EfficientDet-Lite2** backbone. The training process utilizes transfer learning to fine-tune the model on novel data, enabling the detection of two custom classes, rocks and bags. The model is trained in **Google Colab** using a custom Python environment and then deployed to a Pixel 7a device for inference.
+This project demonstrates the creation of a custom object detection model using **TensorFlow Lite Model Maker** with an **EfficientDet-Lite2** backbone. Leveraging transfer learning, the model is fine-tuned on a novel dataset to detect two custom classes: rocks and bags. The model is trained in **Google Colab** using a custom Python environment and deployed to a Pixel 7a device for real-time inference.
 
-The training pipeline involves preparing a dataset of annotated images, configuring hyperparameters, and generating a TensorFlow Lite model (`efficientdet-lite2.tflite`). The resulting model is integrated into an Android app, which supports real-time object detection using the rear-facing camera.
+The pipeline includes dataset preparation, hyperparameter configuration, and generating a TensorFlow Lite model (`efficientdet-lite2.tflite`) suitable for integration into an Android app for live object detection. This project addresses challenges in autonomous systems where misidentification of objects like rocks and bags can compromise safety.
 
-This project was inspired by cases where self-driving cars struggled to differentiate between objects like rocks and bags, leading to unsafe decisions. While not designed to interface directly with autonomous vehicles, it explores solutions to these detection challenges and highlights the potential to improve safety in automated systems.
+- **Example Logic**:
+  - Detecting a **rock** prompts the vehicle to swerve, avoiding potential damage.
+  - Detecting a **bag** minimizes unnecessary evasive maneuvers.
 
-- **Intended Behavior Logic**:
-  - If a **rock** is detected, the vehicle would swerve to avoid the obstacle.
-  - If a **bag** is detected, the vehicle would not swerve, reducing unnecessary evasive actions.
-
-![Example of app detecting objects in a live scene](media/rockbag-tflite-android.gif)
+![Object Detection App](media/rockbag-tflite-android.gif)
 
 ---
 
 ## Training Process
 
-The custom **EfficientDet-Lite2** model is trained using **TensorFlow Lite Model Maker**, a high-level library that simplifies the training and deployment of machine learning models. The library uses transfer learning to reduce the amount of data and training time required, making it an efficient tool for prototyping.
+The **EfficientDet-Lite2** model is trained using **TensorFlow Lite Model Maker**, a high-level library for efficient prototyping. Transfer learning reduces data and computation requirements, accelerating the training process.
 
 ### Steps to Train the Model:
-1. **Setup and Environment**:
-   - Upload the `notebook_main.ipynb` file to **Google Colab**.
-   - The notebook sets up a custom Python environment using **Miniconda** to address limitations in Colab's pre-installed libraries and fixed Python version. This process involves:
-     - Downloading and installing Miniconda.
-     - Creating an isolated environment (`myenv`) with Python 3.9.
-     - Updating the conda package manager for smooth operation.
-   - This setup enables the use of the deprecated tflite-model-maker library with a CPU runtime.
 
-   **Limitations**:  
-   - Training with this setup is restricted to the CPU, which can be slow for larger datasets. GPU acceleration is not currently supported, possibly due to compatibility issues with the conda environment. Contributions to enable GPU support in Colab are welcome and appreciated.
+#### 1. Setup and Environment
+- Upload the `notebook_main.ipynb` file to **Google Colab**.
+- The notebook initializes a custom Python environment with **Miniconda** to address Colab's limitations:
+  - Installs Miniconda and sets up an isolated environment (`myenv`) with Python 3.9.
+  - Ensures compatibility with the TensorFlow Lite Model Maker library in a CPU runtime.
+  
+**Note**: Training is CPU-bound, which may be slow for larger datasets. GPU support is currently unavailable due to compatibility constraints. Contributions to enable GPU acceleration are welcome.
 
-2. **Data Preparation**:  
-- Training data consists of images downsampled to **256x256x3** prior to annotation, as bounding box labels are tied to image resolution. This size allows for faster inference on edge devices. For higher accuracy, downsampling images to **320x320x3** before annotation is recommended.
-   - Annotations are created using [LabelImg](https://github.com/heartexlabs/labelImg) with bounding boxes saved in **PascalVOC format**.  
-   - Annotations and images are organized into separate folders for training and validation, following this structure:  
+#### 2. Data Preparation
+- Images are downsampled to **256x256x3** for faster edge-device inference. For improved accuracy, downsampling of original images to **320x320x3** is recommended before annotation.
+- Bounding box annotations are created using [LabelImg](https://github.com/heartexlabs/labelImg) in **PascalVOC format**.
+- Dataset structure:
+  ```
+  rockbag_figure.zip
+  └── rockbag_figure
+      ├── train
+      │   ├── IMG_001.jpg
+      │   ├── IMG_001.xml
+      └── validate
+          ├── IMG_101.jpg
+          ├── IMG_101.xml
+  ```
+- Upload the dataset (`rockbag_figure.zip`) and an edited `train.py` script with configured hyperparameters (e.g., batch size, epochs).
 
-     ```
-     rockbag_figure.zip
-     └── rockbag_figure
-         ├── train
-         │   ├── IMG_001.jpg
-         │   ├── IMG_001.xml
-         │   ├── IMG_002.jpg
-         │   └── IMG_002.xml
-         └── validate
-             ├── IMG_101.jpg
-             ├── IMG_101.xml
-             ├── IMG_102.jpg
-             └── IMG_102.xml
-     ```
+#### 3. Training Configuration
+- Execute the training pipeline in Colab:
+  - COCO metrics are reported, including:
+    - **mAP** (mean Average Precision): Detection accuracy.
+    - **Precision**: Proportion of correct predictions.
+    - **Recall**: Proportion of true objects detected.
+  - A TensorFlow Lite model (`efficientdet-lite2.tflite`) is generated post-training.
 
-   - The directory is compressed into a `.zip` file (`rockbag_figure.zip`) for upload. If custom data is used, it must follow this folder structure and annotation format for compatibility with the training pipeline.  
-   - The `train.py` script is edited prior to upload to configure key hyperparameters, including:  
-     - **Batch size**  
-     - **Number of epochs**  
-     - **Backbone architecture**  
-   - Both the customized `train.py` script and the `rockbag_figure.zip` dataset archive are uploaded to the `content/` directory in Colab.
-
-3. **Training Configuration**:  
-   - After uploading the dataset and training script, the notebook initiates the model training pipeline.
-   - During training, COCO metrics are printed, including:  
-     - **mAP (mean Average Precision)**: Overall detection accuracy across thresholds.  
-     - **Precision**: Proportion of correct predictions.  
-     - **Recall**: Proportion of actual objects detected.  
-   - These metrics validate the model's performance and ensure it meets object detection requirements.  
-   - The training process generates a TensorFlow Lite model file (`efficientdet-lite2.tflite`), ready for deployment in the Android app.  
-
-
-4. **Outputs**:
-   - The `efficientdet-lite2.tflite` file is saved and ready to be used in the Android app.
+#### 4. Outputs
+- The `efficientdet-lite2.tflite` file is ready for deployment.
 
 ---
 
-## Android App Setup and Custom Model Integration
+## Android App Setup and Model Integration
 
 ### Setup in Android Studio
-
-1. Download the app files from the [Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0).
-2. Open the `android` folder in **Android Studio** (tested with Android Studio Bumblebee).
-3. You can:
-   - Run the app as-is by connecting an Android device in developer mode.
-   - Replace any of the preloaded models with a custom TensorFlow Lite model (see below) then run.
+1. Download app files from [this Dropbox link](https://www.dropbox.com/scl/fi/dfqe9bbnwysucstnby31k/tflite-example-app.zip?rlkey=briqeuq2i99zk058nv32hpofq&st=5xv6wsex&dl=0).
+2. Open the `android` folder in **Android Studio**.
+3. Options:
+   - Run the app as-is.
+   - Replace preloaded models with a custom TensorFlow Lite model.
 
 ### Custom Model Integration
-
-The app includes the following preloaded TensorFlow Lite models:
-- **MobileNet V1**
-- **EfficientDet Lite0**
-- **EfficientDet Lite1**
-- **EfficientDet Lite2** (Custom-trained for rock vs. bag detection)
-
-To replace any of the models with a custom-trained TensorFlow Lite model:
-1. Navigate to the `/assets/` folder in the app files.
-2. Replace one of the existing model files with your custom model, ensuring it is named exactly the same as the model being replaced:
-   - `mobilenetv1.tflite`
-   - `efficientdet-lite0.tflite`
-   - `efficientdet-lite1.tflite`
-   - `efficientdet-lite2.tflite`
-3. Rebuild the app in Android Studio to apply the changes.
+1. Navigate to the `/assets/` folder.
+2. Replace the existing model file (e.g., efficientdet-lite2.tflite) with your custom-trained model. Ensure the custom model filename matches the original model being replaced.
+3. Rebuild the app in Android Studio.
 
 ---
 
 ## Version Tracking
 
-The `version-checks/` folder, located in the project repository, contains screenshots of the tested versions of tools and software used during development, including:  
-- Android Studio version  
-- Gradle JDK and environment details
+Screenshots of tested software versions are stored in the `version-checks/` directory, documenting:
+- Android Studio version
+- Gradle and JDK details
 
 ---
 
 ## Future Work
 
-This project lays the groundwork for exploring object detection in autonomous vehicles. Possible future enhancements include:
-- Expanding the dataset to include diverse scenarios (e.g., different lighting conditions).
-- Experimenting with alternative architectures for improved accuracy.
-- Optimizing inference speeds on other edge devices.
+Potential extensions include:
+- Expanding the dataset to cover diverse conditions (e.g., lighting variations).
+- Experimenting with alternative model architectures.
+- Optimizing inference for additional edge devices.
 
 ---
 
 ## Acknowledgments
 
-This project builds upon the tflite-model-maker workaround originally shared by [@tomkuzma](https://github.com/tensorflow/tensorflow/issues/60431#issuecomment-1574781146) in June 2023. Android implementation is based on the Demo App shared on the [TensorFlow Lite Examples Repository](https://github.com/tensorflow/examples).
+This project builds on the TensorFlow Lite Model Maker workaround shared by [@tomkuzma](https://github.com/tensorflow/tensorflow/issues/60431#issuecomment-1574781146). The Android app is based on the [TensorFlow Lite Examples Repository](https://github.com/tensorflow/examples).
